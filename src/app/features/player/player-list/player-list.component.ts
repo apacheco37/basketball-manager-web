@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Player } from '../player.interface';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-player-list',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerListComponent implements OnInit {
 
-  constructor() { }
+  players$!: Observable<Player[]>;
+  displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Skill', 'Talent'];
+
+  constructor(
+    private playerService: PlayerService
+  ) { }
 
   ngOnInit(): void {
+    this.getPlayers();
+  }
+
+  getPlayers() {
+    this.players$ = this.playerService.getPlayers();
   }
 
 }

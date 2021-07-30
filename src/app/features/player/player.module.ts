@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PlayerRoutingModule } from './player-routing.module';
 import { PlayerListComponent } from './player-list/player-list.component';
+import { MaterialModule } from 'src/app/core/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PlayerListComponent } from './player-list/player-list.component';
   ],
   imports: [
     CommonModule,
-    PlayerRoutingModule
+    PlayerRoutingModule,
+    MaterialModule
   ]
 })
 export class PlayerModule { }
